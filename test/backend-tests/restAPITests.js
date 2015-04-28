@@ -43,7 +43,7 @@ describe('REST API for /user', function () {
 
     it("Should return a wiki with title, abstract and categories", function (done) {
         http.get("http://localhost:" + testPort + "/api/getWiki/:test1", function (res) {
-            //res.setEncoding("utf8");//response data is now a string
+            res.setEncoding("utf8");//response data is now a string
             res.on("data", function (chunk) {
                 var n = JSON.parse(chunk);
                 n.title.should.equal("test1");
