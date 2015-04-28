@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+
 var mongoose = require('mongoose');
 var wikiFacade = require('../model/wiki facade');
 
@@ -41,6 +42,24 @@ router.get('/getCategories', function(req, res) {
             res.end(JSON.stringify(cat));
         });
         }
+});
+
+router.get('/findWiki/:title',function(req,res){
+    if(typeof global.mongo_error !== "undefined"){
+        res.status(500);
+        res.end("Error: "+global.mongo_error+" Database not available)");
+        return;
+    }
+    var title = req.params.title;
+    wikifacade.findWiki(title,function(err,data){
+        if(err){
+            res.status(500);
+            res.end("Error")
+        }else{
+            res.status(200);
+            res.end(data);
+        }
+    })
 });
 
 module.exports = router;
