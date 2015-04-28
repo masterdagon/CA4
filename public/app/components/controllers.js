@@ -5,8 +5,8 @@ angular.module('myAppRename.controllers', []).
   .controller('MyCtrl2', function ($scope) {
     // write MyCtrl2 here
   }).controller('viewallCTRL',function($scope,InfoFactory){
-        $scope.getwikiFromTitle = function(){
-            InfoFactory.getwikiFromTitle
+        $scope.getwikiFromTitle = function(title){
+            InfoFactory.getwikiFromTitle(title)
                 .succes(function(data){
                     $scope.wikiFromTitle = data;
                 })
@@ -14,8 +14,8 @@ angular.module('myAppRename.controllers', []).
                     $scope.wikiFromTitle = data;
                 })
         }
-        $scope.findwiki = function(){
-            InfoFactory.findWiki
+        $scope.findwiki = function(title){
+            InfoFactory.findWiki(title)
                 .succes(function(data){
                     $scope.wikiTitleAbstract = data;
                 })
@@ -25,7 +25,7 @@ angular.module('myAppRename.controllers', []).
         }
 
         $scope.getCategories = function(){
-            InfoFactory.getCategories
+            InfoFactory.getCategories()
                 .succes(function(data){
                     $scope.categories = data;
                 })
@@ -33,8 +33,8 @@ angular.module('myAppRename.controllers', []).
                     $scope.categories = data;
                 })
         }
-        $scope.getWikisWithCategory = function(){
-            InfoFactory.getWikisWithCategory
+        $scope.getWikisWithCategory = function(category){
+            InfoFactory.getWikisWithCategory(category)
                 .succes(function(data){
                     $scope.wikisWithCategories = data;
                 })
