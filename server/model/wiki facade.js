@@ -8,7 +8,7 @@ var wiki = mongoose.model('wiki');
 var all = [];
 
 (function(){
-    wiki.find("",function(err,data){
+    wiki.find({},function(err,data){
         if(err){
         }else{
             all = data;
@@ -38,7 +38,7 @@ function getCategories(callback) {
 function getWikisWithCategory(category, callback) {
     //var all = null;
     var result = [];
-    //wiki.find("",function(err,data){
+    //wiki.find({},function(err,data){
     //    if(err){
     //        callback(err)
     //    }else{
