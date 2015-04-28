@@ -69,7 +69,7 @@ router.get('/getWikisWithCategory/:category',function(req,res){
         return;
     }
     var category = req.params.category;
-    wikiFacade.findWiki(category,function(err,data){
+    wikiFacade.getWikisWithCategory(category,function(err,data){
         if(err){
             res.status(500);
             res.end("Error")
