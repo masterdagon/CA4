@@ -34,7 +34,6 @@ function findWiki(searchString, callback) {
         if (err) {
             callback(err);
         } else {
-            console.log('this is the data: '+data)
             var result = [];
             for (var i = 0; i < data.length; i++) {
                 var titleabstract = {title: data[i].title, abstract: data[i].abstract};
