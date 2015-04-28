@@ -33,7 +33,12 @@ function findWiki(searchString, callback) {
         if(err){
             callback(err);
         }else{
-            callback(null,data);
+            var result = [];
+            for(var i=0;i<data.length;i++){
+                var titleabstract = {title:data[i].title,abstract:data[i].abstract};
+                result.push(titleabstract);
+            }
+            callback(null,result);
         }
     })
 
@@ -68,6 +73,7 @@ function getCategories(callback){
 function getWikisWithCategory(category, callback) {
     //var all = null;
     var result = [];
+    var wikisites = all;
     //wiki.find({},function(err,data){
     //    if(err){
     //        callback(err)
@@ -75,10 +81,11 @@ function getWikisWithCategory(category, callback) {
     //        all = data;
     //    }
     //})
-    for(var i = 0; i<all.length;i++){
-        for(var j = 0;j<all[i].categories.length;j++){
-            if(category == all[i].categories[j]){
-                result.push(all[i].categories[j])
+    for(var i = 0; i<wikisites.length;i++){
+        for(var j = 0;j<wikisites[i].categories.length;j++){
+            if(category == wikisites[i].categories[j]){
+                var titleabstract = {title: wikisites[i].title,abstract:wikisites[i].abstract};
+                result.push(titleabstract);
             }
         }
     }
