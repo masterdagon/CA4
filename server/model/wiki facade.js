@@ -3,7 +3,7 @@
  */
 
 function getWiki(title,callback){
-
+    callback
 }
 
 function findWiki(searchString,callback){
