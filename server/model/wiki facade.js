@@ -10,7 +10,6 @@ var all = [];
 (function(){
     wiki.find("",function(err,data){
         if(err){
-
         }else{
             all = data;
         }
