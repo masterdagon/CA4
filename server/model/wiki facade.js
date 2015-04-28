@@ -2,6 +2,10 @@
  * Created by Dennnis on 28-04-2015.
  */
 
+var mongoose = require('mongoose');
+var db = require('./db');
+var wiki = mongoose.model('wiki');
+
 function getWiki(title,callback){
 
 }
