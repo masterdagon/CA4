@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myAppRename.view3', ['ngRoute'])
+angular.module('myAppRename.accordian', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/accordian', {
