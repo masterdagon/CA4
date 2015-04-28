@@ -5,7 +5,7 @@ angular.module('myAppRename.wiki', ['ngRoute'])
     .config(['$routeProvider', function($routeProvider) {
         $routeProvider.when('/wiki/:title', {
             templateUrl: 'app/view/viewall/wiki.html',
-            controller: 'wikiCTRL'
+            controller: 'wikiCTRL2'
         });
     }]).controller('wikiCTRL',function($scope,InfoFactory,$routeParams){
         $scope.title = $routeParams.title;
@@ -17,5 +17,5 @@ angular.module('myAppRename.wiki', ['ngRoute'])
                     $scope.wiki = data;
                 })
         }
-    })
+    });
 
