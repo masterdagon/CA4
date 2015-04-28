@@ -7,6 +7,7 @@ var testPort = 9999;
 var testServer;
 var mongoose = require("mongoose");
 var User = mongoose.model("User");
+var wiki = mongoose.model("wiki");
 
 describe('REST API for /user', function () {
   //Start the Server before the TESTS
@@ -21,13 +22,20 @@ describe('REST API for /user', function () {
   })
 
   beforeEach(function(done){
-    User.remove({}, function ()
-    {
-      var array = [{userName : "Lars", email :"lars@a.dk",pw: "xxx"},{userName : "Henrik", email :"henrik@a.dk",pw: "xxx"}];
-      User.create(array,function(err){
-        done();
-      });
-    });
+      wiki.remove({},function(){
+          var array = [{title: "test1",abstract:"test1",categories:["test11","test12"]},{title: "test2",abstract:"test2",categories:["test21","test22"]}];
+          wiki.create(array,function(err){
+              done();
+          })
+      })
+
+    //User.remove({}, function ()
+    //{
+    //  var array = [{userName : "Lars", email :"lars@a.dk",pw: "xxx"},{userName : "Henrik", email :"henrik@a.dk",pw: "xxx"}];
+    //  User.create(array,function(err){
+    //    done();
+    //  });
+    //});
   })
 
   after(function(){  //Stop server after the test
@@ -36,16 +44,16 @@ describe('REST API for /user', function () {
     testServer.close();
   })
 
-  it("Should get 2 users; Lars and Henrik", function (done) {
-    http.get("http://localhost:"+testPort+"/api/user",function(res){
-      res.setEncoding("utf8");//response data is now a string
-      res.on("data",function(chunk){
-        var n = JSON.parse(chunk);
-        n.length.should.equal(2);
-        n[0].userName.should.equal("Lars");
-        n[1].userName.should.equal("Henrik");
-        done();
-      });
-    })
-  });
+  //it("Should get 2 users; Lars and Henrik", function (done) {
+  //  http.get("http://localhost:"+testPort+"/api/user",function(res){
+  //    res.setEncoding("utf8");//response data is now a string
+  //    res.on("data",function(chunk){
+  //      var n = JSON.parse(chunk);
+  //      n.length.should.equal(2);
+  //      n[0].userName.should.equal("Lars");
+  //      n[1].userName.should.equal("Henrik");
+  //      done();
+  //    });
+  //  })
+  //});
 });

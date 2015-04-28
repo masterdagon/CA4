@@ -27,7 +27,7 @@ function getWiki(title,callback){
 
     })
 }
-
+//needs to be case insensitive!
 function findWiki(searchString, callback) {
     console.log("findwiki running. searchString: " + searchString);
     wiki.find({title: searchString},function(err,data){
