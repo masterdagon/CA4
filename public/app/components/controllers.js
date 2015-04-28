@@ -7,7 +7,7 @@ angular.module('myAppRename.controllers', []).
   }).controller('viewallCTRL',function($scope,InfoFactory){
         $scope.getwikiFromTitle = function(title){
             InfoFactory.getwikiFromTitle(title)
-                .succes(function(data){
+                .success(function(data){
                     $scope.wikiFromTitle = data;
                 })
                 .error(function(data){
@@ -16,7 +16,7 @@ angular.module('myAppRename.controllers', []).
         }
         $scope.findwiki = function(title){
             InfoFactory.findWiki(title)
-                .succes(function(data){
+                .success(function(data){
                     $scope.wikiTitleAbstract = data;
                 })
                 .error(function(data){
@@ -26,7 +26,7 @@ angular.module('myAppRename.controllers', []).
 
         $scope.getCategories = function(){
             InfoFactory.getCategories()
-                .succes(function(data){
+                .success(function(data){
                     $scope.categories = data;
                 })
                 .error(function(data){
@@ -35,7 +35,7 @@ angular.module('myAppRename.controllers', []).
         }
         $scope.getWikisWithCategory = function(category){
             InfoFactory.getWikisWithCategory(category)
-                .succes(function(data){
+                .success(function(data){
                     $scope.wikisWithCategories = data;
                 })
                 .error(function(data){
