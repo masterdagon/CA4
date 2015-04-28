@@ -3,14 +3,10 @@
  */
 
 function getWiki(title,callback){
-    callback
+    
 }
 
 function findWiki(searchString,callback){
-
-}
-
-function getWiki(title,callback){
 
 }
 

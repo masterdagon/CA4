@@ -1,16 +1,5 @@
 var mongoose = require( 'mongoose' );
-//blabla
-/*
-Note:
-To this test project as it is:
-Start your MongoDB database.
-Start mongo.exe and do:
-  use testdb
-  db.testusers.insert({userName : "Lars", email :"lam@cphbusiness.dk",pw: "test",created : new Date()})
-  db.testusers.insert({userName : "Henrik", email :"hsty@cphbusiness.dk",pw: "test",created : new Date()})
-  db.testusers.insert({userName : "Tobias", email :"tog@cphbusiness.dk",pw: "test",created : new Date()})
-  db.testusers.insert({userName : "Anders", email :"aka@cphbusiness.dk",pw: "test",created : new Date()})
-*/
+
 var dbURI;
 
 //This is set by the backend tests
@@ -44,8 +33,7 @@ process.on('SIGINT', function() {
 });
 
 
-/** User SCHEMA **/
-/** Replace this Schema with your own(s) **/
+/** wikiSchema SCHEMA **/
 var wikiSchema = mongoose.Schema({
         title: { type: String, index: true},
         url: { type: String},
