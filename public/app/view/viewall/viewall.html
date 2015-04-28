@@ -1,14 +1,14 @@
-<p>This is the partial for view 2.</p>
-<p style="color: darkgreen">Partial (view2.html) is located in the folder for this view (app/view2)</p>
-<br/>
-<p style="color: #105cb6">
+<div>
+    <br>
+    <br>
+    <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search" name="srch-term" ng-model="searchString" id="srch-term">
+        <div class="input-group-btn">
+            <button class="btn btn-default" type="submit" ng-click="findwiki(srch-term)"><i class="glyphicon glyphicon-align-left glyphicon-search"></i> search</button>
+        </div>
+    </div>
+</div>
 
-  Showing of 'checkmark" filter:
-  True: {{true | checkmark}}, False {{false | checkmark}}
-  <br/>
-  <p>{{infoFactory}}</p>
-  <p>{{infoService}}</p>
-  <br/>
-  The links below are inserted via a custom directive:
-  <div angular-links></div>
-</p>
+
+
+

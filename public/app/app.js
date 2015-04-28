@@ -11,8 +11,7 @@ angular.module('myAppRename', [
   'myAppRename.home',
   'myAppRename.view2',
   'myAppRename.view3',
-  'ui.bootstrap'
 ]).
 config(['$routeProvider', function($routeProvider) {
-    $routeProvider.otherwise({redirectTo: '/view1'});
+    $routeProvider.otherwise({redirectTo: '/home'});
 }]);
