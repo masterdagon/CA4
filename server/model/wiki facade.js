@@ -7,7 +7,7 @@ var db = require('./db');
 var wiki = mongoose.model('wiki');
 
 function getWiki(title,callback){
-
+    callback
 }
 
 function findWiki(searchString,callback){
