@@ -6,13 +6,11 @@ var wikiFacade = require('../model/wiki facade');
 
 /* GET A User From The DataBase */
 router.get('/getWiki/:title', function(req, res) {
-    console.log('title is: '+req.params.title)
     if(typeof global.mongo_error !== "undefined"){
         res.status(500);
         res.end("Error: "+global.mongo_error+" database not available)");
         return;
     }else{
-        console.log('title is: '+req.params.title)
         wikiFacade.getWiki(req.params.title,function(err,site){
             if (err) {
                 res.status(err.status || 400);
@@ -26,7 +24,6 @@ router.get('/getWiki/:title', function(req, res) {
 });
 
 router.get('/getCategories', function(req, res) {
-    console.log('test')
     if(typeof global.mongo_error !== "undefined"){
         res.status(500);
         res.end("Error: "+global.mongo_error+" database not available)");
@@ -51,7 +48,7 @@ router.get('/findWiki/:title',function(req,res){
         return;
     }
     var title = req.params.title;
-    wikifacade.findWiki(title,function(err,data){
+    wikiFacade.findWiki(title,function(err,data){
         if(err){
             res.status(500);
             res.end("Error")
