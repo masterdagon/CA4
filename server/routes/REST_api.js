@@ -35,9 +35,31 @@ router.get('/findWiki/:title',function(req,res){
             res.end("Error")
         }else{
             res.status(200);
-            res.end(data);
+            res.json(data);
         }
     })
 });
+
+router.get('/getWikisWithCategory/:category',function(req,res){
+    if(typeof global.mongo_error !== "undefined"){
+        res.status(500);
+        res.end("Error: "+global.mongo_error+" Database not available)");
+        return;
+    }
+    var category = req.params.category;
+    wikifacade.findWiki(category,function(err,data){
+        if(err){
+            res.status(500);
+            res.end("Error")
+        }else{
+            res.status(200);
+            res.json(data);
+        }
+    })
+});
+
+router.get('/test',function(req,res){
+    res.end('test');
+})
 
 module.exports = router;

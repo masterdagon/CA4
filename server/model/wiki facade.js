@@ -29,6 +29,7 @@ function getWiki(title,callback){
 }
 
 function findWiki(searchString, callback) {
+    console.log("findwiki running. searchString: " + searchString);
     wiki.find({title: searchString},function(err,data){
         if(err){
             callback(err);
@@ -71,6 +72,7 @@ function getCategories(callback){
 }
 
 function getWikisWithCategory(category, callback) {
+    console.log("getWikisWithCategory running. category: " +category)
     var result = [];
     var wikisites = all;
     for(var i = 0; i<wikisites.length;i++){
