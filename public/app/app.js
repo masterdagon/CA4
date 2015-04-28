@@ -9,9 +9,10 @@ angular.module('myAppRename', [
     'myAppRename.factories',
     'myAppRename.filters',
     'myAppRename.home',
-    'myAppRename.view2',
-    'myAppRename.view3',
+    'myAppRename.viewall',
+    'myAppRename.accordian',
     'myAppRename.wiki'
+
 ]).
     config(['$routeProvider', function ($routeProvider) {
         $routeProvider.otherwise({redirectTo: '/home'});

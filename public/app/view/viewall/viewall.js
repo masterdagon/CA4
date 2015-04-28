@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myAppRename.view2', ['ngRoute'])
+angular.module('myAppRename.viewall', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/viewall', {
