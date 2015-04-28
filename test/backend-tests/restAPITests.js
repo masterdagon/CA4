@@ -37,7 +37,7 @@ describe('REST API for /user', function () {
     after(function () {  //Stop server after the test
         //Uncomment the line below to completely remove the database, leaving the mongoose instance as before the tests
         console.log('closing')
-        //mongoose.connection.db.dropDatabase();
+        mongoose.connection.db.dropDatabase();
         testServer.close();
     })
 
