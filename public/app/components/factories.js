@@ -11,16 +11,16 @@ angular.module('myAppRename.factories', []).
             return $http.get(urlBase);
         };
 
-        dataFactory.getCustomer = function (id) {
-            return $http.get(urlBase + '/' + id);
+        dataFactory.findWiki = function (title) {
+            return $http.get(urlBase + '/findWiki/' + title);
         };
 
         dataFactory.insertCustomer = function (cust) {
             return $http.post(urlBase, cust);
         };
 
-        dataFactory.updateCustomer = function (cust) {
-            return $http.put(urlBase + '/' + cust.ID, cust)
+        dataFactory.getWikisWithCategory = function (category) {
+            return $http.get(urlBase + '/getWikisWithCategory/' + category)
         };
 
         return dataFactory;
