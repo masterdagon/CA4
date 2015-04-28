@@ -54,25 +54,27 @@ describe('REST API for /user', function () {
             })
         });
     })
-    //it("Should return 2 wiki sites with title, abstract and categories", function (done) {
-    //    http.get("http://localhost:" + testPort + "/api/findWiki/test", function (res) {
-    //        res.setEncoding("utf8");//response data is now a string
-    //        res.on("data", function (chunk) {
-    //            var n = JSON.parse(chunk);
-    //            n.length.should.equal(2)
-    //            n[0].title.should.equal("test1");
-    //            n[1].title.should.equal("test2");
-    //            done();
-    //        });
-    //    })
-    //});
+    describe('test for /api//api/findWiki/est ', function () {
+        it("Should return 2 wiki sites with title, abstract and categories", function (done) {
+            http.get("http://localhost:" + testPort + "/api/findWiki/est", function (res) {
+                res.setEncoding("utf8");//response data is now a string
+                res.on("data", function (chunk) {
+                    var n = JSON.parse(chunk);
+                    n.length.should.equal(2)
+                    n[0].title.should.equal("test1");
+                    n[1].title.should.equal("test2");
+                    done();
+                });
+            })
+        });
+    });
     describe('test for /api/getCategories ', function () {
-        it("Should return array of cattegories with the lengt of 4", function (done) {
+        it("Should return array of cattegories with the lengt of 3", function (done) {
             http.get("http://localhost:" + testPort + "/api/getCategories", function (res) {
                 res.setEncoding("utf8");//response data is now a string
                 res.on("data", function (chunk) {
                     var n = JSON.parse(chunk);
-                    n.length.should.equal(4)
+                    n.length.should.equal(3)
                     n[0].should.equal("test11");
                     n[1].should.equal("test12");
                     done();
@@ -81,7 +83,7 @@ describe('REST API for /user', function () {
         });
     })
     describe('test for /api/getWikisWithCategory/:category ', function () {
-        it("Should return array of cattegories with the lengt of 4", function (done) {
+        it("Should return array with size of 2 containing wikisites with category test11", function (done) {
             http.get("http://localhost:" + testPort + "/api/getWikisWithCategory/test11", function (res) {
                 res.setEncoding("utf8");//response data is now a string
                 res.on("data", function (chunk) {
