@@ -5,6 +5,7 @@ angular.module('myAppRename.controllers', []).
   .controller('MyCtrl2', function ($scope) {
     // write MyCtrl2 here
   }).controller('viewallCTRL',function($scope,InfoFactory){
+        $scope.dynamicTooltip ="dette er en test"
         $scope.getwikiFromTitle = function(title){
             InfoFactory.getwikiFromTitle(title)
                 .success(function(data){

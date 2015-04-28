@@ -9,7 +9,7 @@
     </div>
     <div>
         <ul>
-                <li ng-repeat="site in wikiTitleAbstract" ng-mouseover=""><a href="#/wiki/{{site.title}}">{{site.title}}</a></li>
+                <li ng-repeat="site in wikiTitleAbstract" data-toggle="tooltip" data-placement="left" title="{{site.abstract}}"><a href="#/wiki/{{site.title}}">{{site.title}}</a></li>
         </ul>
 
     </div>
