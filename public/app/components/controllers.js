@@ -15,6 +15,7 @@ angular.module('myAppRename.controllers', []).
                 })
         }
         $scope.findwiki = function(title){
+            $scope.wikiTitleAbstract = 'wait'
             InfoFactory.findWiki(title)
                 .success(function(data){
                     $scope.wikiTitleAbstract = data;

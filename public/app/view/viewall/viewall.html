@@ -7,7 +7,12 @@
             <button class="btn btn-default" type="submit" ng-click="findwiki(searchString)"><i class="glyphicon glyphicon-align-left glyphicon-search"></i> search</button>
         </div>
     </div>
-    <div>{{wikiTitleAbstract}}</div>
+    <div>
+        <ul>
+            <li ng-repeat="site in wikiTitleAbstract">{{site.title}}</li>
+        </ul>
+
+    </div>
 </div>
 
 
