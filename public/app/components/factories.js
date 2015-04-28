@@ -7,7 +7,7 @@ angular.module('myAppRename.factories', []).
         var urlBase = '/api/';
         var dataFactory = {};
 
-        dataFactory.getwikiFromTitle = function (title) {
+        dataFactory.getwiki = function (title) {
             return $http.get(urlBase+'/getWiki/'+title);
         };
 
