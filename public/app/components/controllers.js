@@ -6,7 +6,7 @@ angular.module('myAppRename.controllers', []).
     // write MyCtrl2 here
   }).controller('viewallCTRL',function($scope,InfoFactory){
         $scope.getwikiFromTitle = function(){
-            InfoFactory.getwikiFromTitle
+            InfoFactory.getwikiFromTitle()
                 .succes(function(data){
                     $scope.wikiFromTitle = data;
                 })
@@ -15,7 +15,7 @@ angular.module('myAppRename.controllers', []).
                 })
         }
         $scope.findwiki = function(){
-            InfoFactory.findWiki
+            InfoFactory.findWiki()
                 .succes(function(data){
                     $scope.wikiTitleAbstract = data;
                 })

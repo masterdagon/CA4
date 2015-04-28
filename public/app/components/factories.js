@@ -3,7 +3,7 @@
 /* Factories */
 
 angular.module('myAppRename.factories', []).
-  factory('InfoFactory', function () {
+  factory('InfoFactory', function ($http) {
         var urlBase = '/api/';
         var dataFactory = {};
 
