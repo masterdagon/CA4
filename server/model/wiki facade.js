@@ -16,8 +16,6 @@ var all = [];
     })
 })();
 
-function getWiki(title, callback) {
-    callback
 function getWiki(title,callback){
     wiki.findOne({title: title}, function (err, wikisite) {
         if (err) {
@@ -94,7 +92,6 @@ function getWikisWithCategory(category, callback) {
 module.exports = {
     getWiki: getWiki,
     findWiki: findWiki,
-    getWiki: getWiki,
     getCategories: getCategories,
     getWikisWithCategory: getWikisWithCategory
 }
