@@ -7,16 +7,16 @@ angular.module('myAppRename.factories', []).
         var urlBase = '/api/';
         var dataFactory = {};
 
-        dataFactory.getwikiFromTitle = function () {
-            return $http.get(urlBase);
+        dataFactory.getwikiFromTitle = function (title) {
+            return $http.get(urlBase+'/getWiki/'+title);
         };
 
         dataFactory.getCustomer = function (id) {
             return $http.get(urlBase + '/' + id);
         };
 
-        dataFactory.insertCustomer = function (cust) {
-            return $http.post(urlBase, cust);
+        dataFactory.getCategories = function () {
+            return $http.get(urlBase+'/getCategories');
         };
 
         dataFactory.updateCustomer = function (cust) {
