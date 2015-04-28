@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var mongoose = require('mongoose');
-var user = mongoose.model('User');
+var wikifacade = require("../model/wiki facade");
 
 /* GET A User From The DataBase */
 router.get('/user', function(req, res) {
@@ -20,6 +20,24 @@ router.get('/user', function(req, res) {
     res.header("Content-type","application/json");
     res.end(JSON.stringify(users));
   });
+});
+
+router.get('/findWiki/:title',function(req,res){
+    if(typeof global.mongo_error !== "undefined"){
+        res.status(500);
+        res.end("Error: "+global.mongo_error+" Database not available)");
+        return;
+    }
+    var title = req.params.title;
+    wikifacade.findWiki(title,function(err,data){
+        if(err){
+            res.status(500);
+            res.end("Error")
+        }else{
+            res.status(200);
+            res.end(data);
+        }
+    })
 });
 
 module.exports = router;

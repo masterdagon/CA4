@@ -71,16 +71,8 @@ function getCategories(callback){
 }
 
 function getWikisWithCategory(category, callback) {
-    //var all = null;
     var result = [];
     var wikisites = all;
-    //wiki.find({},function(err,data){
-    //    if(err){
-    //        callback(err)
-    //    }else{
-    //        all = data;
-    //    }
-    //})
     for(var i = 0; i<wikisites.length;i++){
         for(var j = 0;j<wikisites[i].categories.length;j++){
             if(category == wikisites[i].categories[j]){
