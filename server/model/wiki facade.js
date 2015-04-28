@@ -49,7 +49,6 @@ function getCategories(callback){
     var categoryList =[];
     var uniqueList = [];
     var wikisites = all;
-
     for(var i=0;i<wikisites.length;i++){
         templist = wikisites[i].categories
         for(var j=0;j<templist.length;j++){
