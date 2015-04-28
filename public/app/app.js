@@ -8,7 +8,7 @@ angular.module('myAppRename', [
   'myAppRename.services',
   'myAppRename.factories',
   'myAppRename.filters',
-  'myAppRename.view1',
+  'myAppRename.home',
   'myAppRename.view2',
   'myAppRename.view3',
   'ui.bootstrap'
