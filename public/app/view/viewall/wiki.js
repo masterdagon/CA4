@@ -9,8 +9,8 @@ angular.module('myAppRename.wiki', ['ngRoute'])
         });
     }]).controller('wikiCTRL',function($scope,InfoFactory,$routeParams){
         $scope.title = $routeParams.title;
-        $scope.getwiki = function(title){
-            InfoFactory.getwiki(title)
+        $scope.getwiki = function(){
+            InfoFactory.getwiki($scope.title)
                 .success(function(data){
                 $scope.wiki = data;
             }).error(function(data){
