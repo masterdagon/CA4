@@ -14,12 +14,14 @@
     </div>
     <div>
         <ul>
-            <!--<li ng-repeat="site in wikiTitleAbstract" data-toggle="tooltip" data-placement="right" title="{{site.abstract}}"><a href="#/wiki/{{site.title}}">{{site.title}}</a></li>-->
-            <li ng-repeat="site in wikiTitleAbstract"><a
+            <li ng-repeat="site in filteredLinks"><a
                     href="#/wiki/{{site.title}}" tooltip="{{site.abstract}}" tooltip-placement="right" tooltip-popup-delay="200">{{site.title}}</a>
             </li>
-        </ul>
 
+            <pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged">
+
+            </pagination>
+        </ul>
     </div>
 </div>
 
