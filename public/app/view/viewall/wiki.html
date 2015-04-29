@@ -1,6 +1,7 @@
-<div data-ng-init = "getwiki()">
-    Title: {{wiki.title}} <br>
-    Abstract: {{wiki.abstract}} <br>
-    Url: <a href="{{wiki.url}}">Link</a> <br>
-    Categories: {{wiki.categories}}
+<div class="container" data-ng-init = "getwiki()">
+    <h3>"{{wiki.title}}"</h3>
+    <h4>Abstract:  <small>"{{wiki.abstract}}"</small></h4>
+    <h4>Link <small>to wikipedia: <a href="{{wiki.url}}">"{{wiki.title}}"</a></small> </h4>
+    <h4>Tags: <small ng-repeat="category in wiki.categories"> <a  href="/#/category/{{category}}">{{category}}</a>&nbsp|&nbsp </small></h4>
+    <!--Categories: {{wiki.categories}}-->
 </div>
