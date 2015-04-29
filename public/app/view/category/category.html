@@ -1,3 +1,7 @@
-<ul data-ng-init="getCategories">
-    <li ng-repeat="category in categories">{{category}}</li>
+TEST
+<div>
+<ul data-ng-init="getCategories()">
+    <li ng-repeat="category in filteredLinks"><a href ="#/category/{{category}}">{{category}}</a></li>
 </ul>
+<pagination ng-model="currentPage" total-items="totalItems" ng-change="pageChanged"></pagination>
+</div>
