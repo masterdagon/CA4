@@ -15,7 +15,9 @@ angular.module('myAppRename.category', ['ngRoute'])
         $scope.getCategories = function () {
             InfoFactory.getCategories()
                 .success(function (data) {
-                    $scope.categories = data;
+                    $scope.categories = data.sort(function (a, b) {
+                        return a.toLowerCase().localeCompare(b.toLowerCase());
+                    });
                     $scope.totalItems=data.length;
                 }).error(function(data){
                     $scope.categories = data;
@@ -25,7 +27,7 @@ angular.module('myAppRename.category', ['ngRoute'])
         $scope.filteredLinks = [];
         //$scope.totalItems = 0;
         $scope.currentPage = 1;
-        $scope.numPerPage = 10;
+        $scope.numPerPage = 30;
         $scope.$watch("totalItems + currentPage + numberPerPage",function(){
             var begin = (($scope.currentPage-1)*$scope.numPerPage),end = begin+$scope.numPerPage;
             $scope.filteredLinks = $scope.categories.slice(begin,end);

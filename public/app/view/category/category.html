@@ -3,5 +3,5 @@ TEST
 <ul data-ng-init="getCategories()">
     <li ng-repeat="category in filteredLinks"><a href ="#/category/{{category}}">{{category}}</a></li>
 </ul>
-<pagination ng-model="currentPage" total-items="totalItems" ng-change="pageChanged"></pagination>
+<pagination ng-model="currentPage" total-items="totalItems" ng-change="pageChanged" items-per-page="30"></pagination>
 </div>
