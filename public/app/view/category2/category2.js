@@ -4,7 +4,7 @@ angular.module('myAppRename.category2', ['ngRoute'])
 
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/category2', {
-            templateUrl: 'Search/view/category2/category2.html',
+            templateUrl: 'app/view/category2/category2.html',
             controller: 'category2CTRL'
         })
     }]).controller('category2CTRL', function ($scope, InfoFactory) {

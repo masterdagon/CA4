@@ -1,11 +1,11 @@
-describe('myAppRename.Search View3Ctrl', function() {
+describe('myAppRename.app View3Ctrl', function() {
 
   var scope, httpBackendMock, ctrl;
   var users = [
     {userName : "Lars", email :"l@l.dk",pw: "test",created : new Date(2014,11,2)},
     {userName : "Henrik", email :"h@h.dk",pw: "test",created : new Date(2014,11,2)},
   ];
-  beforeEach(module('myAppRename.Search'));
+  beforeEach(module('myAppRename.app'));
 
   beforeEach(inject(function ($httpBackend, $rootScope, $controller) {
     httpBackendMock = $httpBackend;

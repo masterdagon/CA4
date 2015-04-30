@@ -8,6 +8,7 @@ if( typeof global.TEST_DATABASE != "undefined" ) {
 }
 else{
   dbURI = "mongodb://ca4:ca4@ds039311.mongolab.com:39311/muggiman";
+
 }
 
 mongoose.connect(dbURI);
@@ -27,7 +28,7 @@ mongoose.connection.on('disconnected', function () {
 
 process.on('SIGINT', function() {
   mongoose.connection.close(function () {
-    console.log('Mongoose disconnected through Search termination');
+    console.log('Mongoose disconnected through app termination');
     process.exit(0);
   });
 });

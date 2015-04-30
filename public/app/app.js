@@ -1,6 +1,6 @@
 'use strict';
 
-// Declare Search level module which depends on views, and components
+// Declare app level module which depends on views, and components
 angular.module('myAppRename', [
     'ngRoute',
     'ui.bootstrap',

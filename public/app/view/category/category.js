@@ -4,10 +4,10 @@ angular.module('myAppRename.category', ['ngRoute'])
 
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/category', {
-            templateUrl: 'Search/view/category/category.html',
+            templateUrl: 'app/view/category/category.html',
             controller: 'categoryCTRL'
         }).when('/category/:category', {
-            templateUrl: 'Search/view/category/titles.html',
+            templateUrl: 'app/view/category/titles.html',
             controller: 'titleCTRL'
         });
     }]).controller('categoryCTRL', function ($scope, InfoFactory) {
