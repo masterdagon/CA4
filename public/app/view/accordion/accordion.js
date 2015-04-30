@@ -7,9 +7,27 @@ angular.module('myAppRename.accordion', ['ngRoute'])
     templateUrl: 'app/view/accordion/accordion.html',
     controller: 'accordionCTRL'
   });
-}]).directive('wikisite', function() {
+}]).directive('student', function() {
+        //return {
+        //    restrict: 'E',
+        //    transclude: true,
+        //    scope: {},
+        //    controller: function($scope) {
+        //        $scope.title = $routeParams.title;
+        //        $scope.getwiki = function(){
+        //            InfoFactory.getwiki($scope.title)
+        //                .success(function(data){
+        //                    $scope.wiki = data;
+        //                }).error(function(data){
+        //                    $scope.wiki = data;
+        //                })
+        //        }
+        //    },
+        //    templateUrl: 'view/viewall/wiki.html'
+        //};
         return {
-            template: '<p>Dette er en test</p>'
+            controller: {},
+            templateUrl: 'view/viewall/wiki.html'
         };
     })
 .controller('accordionCTRL',function($scope,InfoFactory){

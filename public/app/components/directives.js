@@ -3,11 +3,7 @@
 /* Directives */
 
 angular.module('myAppRename.directives', [])
-    .directive('wikiSite', function($routeParams) {
-        return {
-            template: '<p>Dette er en test</p>'
-        };
-  }).directive('angularLinks', function () {
+.directive('angularLinks', function () {
         return {
             restrict: 'AE',
             replace: 'true',
