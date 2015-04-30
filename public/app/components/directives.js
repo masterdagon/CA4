@@ -3,7 +3,7 @@
 /* Directives */
 
 angular.module('myAppRename.directives', [])
-.directive('student', function() {
+.directive('wikiPage', function() {
         return {
             templateUrl: 'view/viewall/wikiTemp.html'
         };

@@ -15,7 +15,7 @@
     <div>
         <accordion close-others="oneAtATime">
             <accordion-group heading="{{tit.title}}" ng-click="getwiki(tit.title)" ng-repeat="tit in filteredLinks">
-                <div student></div>
+                <div wiki-page></div>
             </accordion-group>
         </accordion>
         <pagination total-items="totalItems" ng-model="currentPage">
