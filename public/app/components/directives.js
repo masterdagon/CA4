@@ -5,7 +5,7 @@
 angular.module('myAppRename.directives', [])
     .directive('wikiSite', function($routeParams) {
         return {
-            templateUrl: 'view/viewall/wiki.html'
+            template: '<p>Dette er en test</p>'
         };
   }).directive('angularLinks', function () {
         return {

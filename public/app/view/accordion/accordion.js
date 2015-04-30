@@ -7,7 +7,11 @@ angular.module('myAppRename.accordion', ['ngRoute'])
     templateUrl: 'app/view/accordion/accordion.html',
     controller: 'accordionCTRL'
   });
-}])
+}]).directive('wikisite', function() {
+        return {
+            template: '<p>Dette er en test</p>'
+        };
+    })
 .controller('accordionCTRL',function($scope,InfoFactory){
         $scope.wikiTitleAbstract=[];
         $scope.filteredLinks = [];
@@ -23,15 +27,15 @@ angular.module('myAppRename.accordion', ['ngRoute'])
             $scope.filteredLinks = $scope.wikiTitleAbstract.slice(begin, end);
         });
 
-        $scope.getwikiFromTitle = function(title){
-            InfoFactory.getwikiFromTitle(title)
-                .success(function(data){
-                    $scope.wikiFromTitle = data;
-                })
-                .error(function(data){
-                    $scope.wikiFromTitle = data;
-                })
-        }
+        //$scope.getwikiFromTitle = function(title){
+        //    InfoFactory.getwikiFromTitle(title)
+        //        .success(function(data){
+        //            $scope.wikiFromTitle = data;
+        //        })
+        //        .error(function(data){
+        //            $scope.wikiFromTitle = data;
+        //        })
+        //}
         $scope.findwiki = function(title){
             $scope.wikiTitleAbstract = 'wait'
             InfoFactory.findWiki(title)
