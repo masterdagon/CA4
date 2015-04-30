@@ -11,31 +11,35 @@ angular.module('myAppRename.category', ['ngRoute'])
             controller: 'titleCTRL'
         });
     }]).controller('categoryCTRL', function ($scope, InfoFactory) {
-        $scope.categories=[];
+        $scope.categoriesdb=[];
         $scope.getCategories = function () {
             InfoFactory.getCategories()
                 .success(function (data) {
-                    $scope.categories = data.sort(function (a, b) {
+                    $scope.categoriesdb = data.sort(function (a, b) {
                         return a.toLowerCase().localeCompare(b.toLowerCase());
                     });
                     $scope.totalItems=data.length;
                 }).error(function(data){
-                    $scope.categories = data;
+                    $scope.categoriesdb = data;
                 })
         };
 
+        $scope.resetCategories = function(){
+            $scope.categories =  $scope.categoriesdb;
+        };
+
         $scope.getCategoriesWithLetter = function (letter) {
-            InfoFactory.getCategories()
-                .success(function (data) {
-                    $scope.categories = data.filter(function (cat) {
+            //InfoFactory.getCategories()
+            //    .success(function (data) {
+                    $scope.categories = $scope.categoriesdb.filter(function (cat) {
                         if(cat.charAt(0)==letter){
                             return cat;
                         }
                     });
                     $scope.totalItems=$scope.categories.length
-                }).error(function(data){
-                    $scope.categories = data;
-                })
+        //        }).error(function(data){
+        //            $scope.categories = data;
+        //        })
         };
 
         $scope.filteredLinks = [];
