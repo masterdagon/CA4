@@ -7,35 +7,14 @@ angular.module('myAppRename.accordion', ['ngRoute'])
     templateUrl: 'app/view/accordion/accordion.html',
     controller: 'accordionCTRL'
   });
-}]).directive('student', function() {
-        //return {
-        //    restrict: 'E',
-        //    transclude: true,
-        //    scope: {},
-        //    controller: function($scope) {
-        //        $scope.title = $routeParams.title;
-        //        $scope.getwiki = function(){
-        //            InfoFactory.getwiki($scope.title)
-        //                .success(function(data){
-        //                    $scope.wiki = data;
-        //                }).error(function(data){
-        //                    $scope.wiki = data;
-        //                })
-        //        }
-        //    },
-        //    templateUrl: 'view/viewall/wiki.html'
-        //};
-        return {
-            controller: {},
-            templateUrl: 'view/viewall/wiki.html'
-        };
-    })
+}])
 .controller('accordionCTRL',function($scope,InfoFactory){
         $scope.wikiTitleAbstract=[];
         $scope.filteredLinks = [];
         $scope.totalItems=0;
         $scope.currentPage=1;
         $scope.numPerPage=10;
+        $scope.wiki = {};
 
 
         $scope.$watch("currentPage + numPerPage + totalItems", function() {
@@ -45,15 +24,16 @@ angular.module('myAppRename.accordion', ['ngRoute'])
             $scope.filteredLinks = $scope.wikiTitleAbstract.slice(begin, end);
         });
 
-        //$scope.getwikiFromTitle = function(title){
-        //    InfoFactory.getwikiFromTitle(title)
-        //        .success(function(data){
-        //            $scope.wikiFromTitle = data;
-        //        })
-        //        .error(function(data){
-        //            $scope.wikiFromTitle = data;
-        //        })
-        //}
+        $scope.getwiki = function(title){
+            $scope.title = title
+            InfoFactory.getwiki($scope.title)
+                .success(function(data){
+                    $scope.wiki = data;
+                }).error(function(data){
+                    $scope.wiki = data;
+                })
+        }
+
         $scope.findwiki = function(title){
             $scope.wikiTitleAbstract = 'wait'
             InfoFactory.findWiki(title)

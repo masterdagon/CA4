@@ -8,6 +8,7 @@ angular.module('myAppRename.wiki', ['ngRoute'])
             controller: 'wikiCTRL'
         });
     }]).controller('wikiCTRL',function($scope,InfoFactory,$routeParams){
+        console.log('this is the route "'+$routeParams.title)
         $scope.title = $routeParams.title;
         $scope.getwiki = function(){
             InfoFactory.getwiki($scope.title)
