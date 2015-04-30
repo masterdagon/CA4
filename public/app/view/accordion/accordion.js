@@ -9,7 +9,8 @@ angular.module('myAppRename.accordion', ['ngRoute'])
   });
 }])
 .controller('accordionCTRL',function($scope,InfoFactory){
-        $scope.filteredLinks = []
+        $scope.wikiTitleAbstract=[];
+        $scope.filteredLinks = [];
         $scope.totalItems=0;
         $scope.currentPage=1;
         $scope.numPerPage=10;
