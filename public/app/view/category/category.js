@@ -4,7 +4,7 @@ angular.module('myAppRename.category', ['ngRoute'])
 
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/category', {
-            templateUrl: 'app/view/category/category2.html',
+            templateUrl: 'app/view/category2/category2.html',
             controller: 'categoryCTRL'
         }).when('/category/:category',{
             templateUrl : 'app/view/category/titles.html',
