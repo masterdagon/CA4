@@ -19,6 +19,10 @@ angular.module('myAppRename.factories', []).
             return $http.get(urlBase+'/getCategories');
         };
 
+        dataFactory.getCategories = function () {
+            return $http.get(urlBase+'/getCategories');
+        };
+
         dataFactory.getWikisWithCategory = function (category) {
             return $http.get(urlBase + '/getWikisWithCategory/' + category)
         };

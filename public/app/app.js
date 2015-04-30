@@ -13,6 +13,7 @@ angular.module('myAppRename', [
     'myAppRename.viewall',
     'myAppRename.accordion',
     'myAppRename.category',
+    'myAppRename.category2',
     'myAppRename.wiki'
 
 ]).

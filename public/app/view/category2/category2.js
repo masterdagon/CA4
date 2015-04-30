@@ -1,16 +1,13 @@
 'use strict';
 
-angular.module('myAppRename.category', ['ngRoute'])
+angular.module('myAppRename.category2', ['ngRoute'])
 
     .config(['$routeProvider', function ($routeProvider) {
-        $routeProvider.when('/category', {
-            templateUrl: 'app/view/category/category2.html',
-            controller: 'categoryCTRL'
-        }).when('/category/:category',{
-            templateUrl : 'app/view/category/titles.html',
-            controller: 'titleCTRL'
-        });
-    }]).controller('categoryCTRL', function ($scope, InfoFactory) {
+        $routeProvider.when('/category2', {
+            templateUrl: 'app/view/category2/category2.html',
+            controller: 'category2CTRL'
+        })
+    }]).controller('category2CTRL', function ($scope, InfoFactory) {
         $scope.categories=[];
         $scope.getCategories = function () {
             InfoFactory.getCategories()
@@ -38,6 +35,15 @@ angular.module('myAppRename.category', ['ngRoute'])
                 })
         };
 
+        $scope.getWikisWithCategory = function(category){
+            InfoFactory.getWikisWithCategory(category)
+                .success(function(data){
+                    $scope.titles = data;
+                }).error(function(data){
+                    $scope.titles = data;
+                })
+        }
+
         $scope.filteredLinks = [];
         $scope.maxSize= 10;
         $scope.totalItems = 0;
@@ -48,15 +54,4 @@ angular.module('myAppRename.category', ['ngRoute'])
             $scope.filteredLinks = $scope.categories.slice(begin,end);
         })
 
-    }).controller('titleCTRL',function($scope,InfoFactory,$routeParams){
-        $scope.category = $routeParams.category;
-        $scope.getWikisWithCategory = function(){
-            InfoFactory.getWikisWithCategory($scope.category)
-                .success(function(data){
-                    $scope.titles = data;
-                }).error(function(data){
-                    $scope.titles = data;
-                })
-        }
     })
-

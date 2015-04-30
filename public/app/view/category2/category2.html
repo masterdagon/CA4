@@ -31,8 +31,15 @@ TEST
 
     </div>
 <!--<ul data-ng-init="getCategories()">-->
+    <accordion close-others="oneAtATime">
+    <accordion-group heading="{{category}}" ng-click="getWikisWithCategory(category)" ng-repeat="category in filteredLinks">
+        <ul>
+            <li ng-repeat="site in titles">{{site.title}}</li>
+        </ul>
+    </accordion-group>
+    </accordion>
 <ul>
-    <li ng-repeat="category in filteredLinks"><a href ="#/category/{{category}}">{{category}}</a></li>
+    <li ><a href ="#/category/{{category}}">{{category}}</a></li>
 </ul>
 <pagination ng-model="currentPage" total-items="totalItems" max-size="maxSize" items-per-page="numPerPage" maxSize="maxSize" boundary-links="true" rotate="false" num-pages="numPages"></pagination>
 </div>
