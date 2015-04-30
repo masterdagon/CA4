@@ -4,7 +4,7 @@ angular.module('myAppRename.category', ['ngRoute'])
 
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/category', {
-            templateUrl: 'app/view/category2/category2.html',
+            templateUrl: 'app/view/category/category.html',
             controller: 'categoryCTRL'
         }).when('/category/:category',{
             templateUrl : 'app/view/category/titles.html',
@@ -12,12 +12,14 @@ angular.module('myAppRename.category', ['ngRoute'])
         });
     }]).controller('categoryCTRL', function ($scope, InfoFactory) {
         $scope.categoriesdb=[];
+        $scope.categories=[];
         $scope.getCategories = function () {
             InfoFactory.getCategories()
                 .success(function (data) {
                     $scope.categoriesdb = data.sort(function (a, b) {
                         return a.toLowerCase().localeCompare(b.toLowerCase());
                     });
+                    $scope.categories = $scope.categoriesdb;
                     $scope.totalItems=data.length;
                 }).error(function(data){
                     $scope.categoriesdb = data;
