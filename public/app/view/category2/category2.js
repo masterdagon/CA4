@@ -17,8 +17,8 @@ angular.module('myAppRename.category2', ['ngRoute'])
                     $scope.categoriesDB = data.sort(function (a, b) {
                         return a.toLowerCase().localeCompare(b.toLowerCase());
                     });
-                    $scope.totalItems = $scope.categoriesDB.length
                     $scope.categories =  $scope.categoriesDB
+                    $scope.totalItems = $scope.categoriesDB.length
                 }).error(function(data){
                     $scope.categoriesDB = data;
                 })
@@ -26,6 +26,8 @@ angular.module('myAppRename.category2', ['ngRoute'])
 
         $scope.resetCategories = function(){
             $scope.categories =  $scope.categoriesDB
+            $scope.totalItems = $scope.categories.length;
+            $scope.currentPage = 1;
         }
 
         $scope.getCategoriesWithLetter = function (letter) {
@@ -35,7 +37,8 @@ angular.module('myAppRename.category2', ['ngRoute'])
                             return cat;
                         }
                     });
-                    $scope.totalItems=$scope.categories.length
+                    $scope.totalItems = $scope.categories.length;
+                    $scope.currentPage = 1;
 
         };
 
