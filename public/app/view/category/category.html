@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
-
-</body>
-</html>
+TEST
+<div>
+<ul data-ng-init="getCategories()">
+    <li ng-repeat="category in filteredLinks"><a href ="#/category/{{category}}">{{category}}</a></li>
+</ul>
+<pagination ng-model="currentPage" total-items="totalItems" ng-change="pageChanged" items-per-page="30"></pagination>
+</div>
