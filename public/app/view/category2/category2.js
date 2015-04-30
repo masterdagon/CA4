@@ -8,31 +8,35 @@ angular.module('myAppRename.category2', ['ngRoute'])
             controller: 'category2CTRL'
         })
     }]).controller('category2CTRL', function ($scope, InfoFactory) {
+        $scope.categoriesDB=[];
         $scope.categories=[];
+
         $scope.getCategories = function () {
             InfoFactory.getCategories()
                 .success(function (data) {
-                    $scope.categories = data.sort(function (a, b) {
+                    $scope.categoriesDB = data.sort(function (a, b) {
                         return a.toLowerCase().localeCompare(b.toLowerCase());
                     });
-                    $scope.totalItems=data.length;
+                    $scope.totalItems = $scope.categoriesDB.length
+                    $scope.categories =  $scope.categoriesDB
                 }).error(function(data){
-                    $scope.categories = data;
+                    $scope.categoriesDB = data;
                 })
         };
 
+        $scope.resetCategories = function(){
+            $scope.categories =  $scope.categoriesDB
+        }
+
         $scope.getCategoriesWithLetter = function (letter) {
-            InfoFactory.getCategories()
-                .success(function (data) {
+                    var data = $scope.categoriesDB
                     $scope.categories = data.filter(function (cat) {
                         if(cat.charAt(0)==letter){
                             return cat;
                         }
                     });
                     $scope.totalItems=$scope.categories.length
-                }).error(function(data){
-                    $scope.categories = data;
-                })
+
         };
 
         $scope.getWikisWithCategory = function(category){
