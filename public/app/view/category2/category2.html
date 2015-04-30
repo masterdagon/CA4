@@ -1,7 +1,7 @@
-TEST
-<div>
+
+<div data-ng-init="getCategories()">
     <div class="btn-group btn-group-sm">
-        <button class="btn btn-default" ng-click="getCategories()">A</button>
+        <button class="btn btn-default" ng-click="resetCategories()">All</button>
         <button class="btn btn-default" ng-click="getCategoriesWithLetter('A')">A</button>
         <button class="btn btn-default" ng-click="getCategoriesWithLetter('B')">B</button>
         <button class="btn btn-default" ng-click="getCategoriesWithLetter('C')">C</button>
@@ -30,16 +30,12 @@ TEST
         <button class="btn btn-default" ng-click="getCategoriesWithLetter('Z')">Z</button>
 
     </div>
-<!--<ul data-ng-init="getCategories()">-->
     <accordion close-others="oneAtATime">
     <accordion-group heading="{{category}}" ng-click="getWikisWithCategory(category)" ng-repeat="category in filteredLinks">
         <ul>
-            <li ng-repeat="site in titles">{{site.title}}</li>
+            <li ng-repeat="site in titles"><a href="#/category/:{{site.title}}">{{site.title}}</a></li>
         </ul>
     </accordion-group>
     </accordion>
-<ul>
-    <li ><a href ="#/category/{{category}}">{{category}}</a></li>
-</ul>
 <pagination ng-model="currentPage" total-items="totalItems" max-size="maxSize" items-per-page="numPerPage" maxSize="maxSize" boundary-links="true" rotate="false" num-pages="numPages"></pagination>
 </div>
