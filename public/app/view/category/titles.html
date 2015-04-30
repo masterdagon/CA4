@@ -1,3 +1,6 @@
-<ul data-ng-init = "getWikisWithCategory()">
-    <li ng-repeat="title in titles"><a href="#/wiki/{{title.title}}">{{title.title}}</a></li>
-</ul>
+<div class container>
+    <ul data-ng-init="getWikisWithCategory()">
+        <h4>Topics in category: <small>"{{category}}"</small></h4>
+        <li ng-repeat="title in titles"><a href="#/wiki/{{title.title}}">{{title.title}}</a></li>
+    </ul>
+</div>

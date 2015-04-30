@@ -33,7 +33,7 @@
     <accordion close-others="oneAtATime">
     <accordion-group heading="{{category}}" ng-click="getWikisWithCategory(category)" ng-repeat="category in filteredLinks">
         <ul>
-            <li ng-repeat="site in titles"><a href="#/category/:{{site.title}}">{{site.title}}</a></li>
+            <li ng-repeat="site in titles"><a href="#/wiki/{{site.title}}">{{site.title}}</a></li>
         </ul>
     </accordion-group>
     </accordion>
