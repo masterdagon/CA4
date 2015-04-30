@@ -4,7 +4,7 @@ angular.module('myAppRename.wiki', ['ngRoute'])
 
     .config(['$routeProvider', function($routeProvider) {
         $routeProvider.when('/wiki/:title', {
-            templateUrl: 'app/view/viewall/wiki.html',
+            templateUrl: 'Search/view/viewall/wiki.html',
             controller: 'wikiCTRL'
         });
     }]).controller('wikiCTRL',function($scope,InfoFactory,$routeParams){

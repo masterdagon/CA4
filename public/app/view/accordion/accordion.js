@@ -4,7 +4,7 @@ angular.module('myAppRename.accordion', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/accordion', {
-    templateUrl: 'app/view/accordion/accordion.html',
+    templateUrl: 'Search/view/accordion/accordion.html',
     controller: 'accordionCTRL'
   });
 }])
