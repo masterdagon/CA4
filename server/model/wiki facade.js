@@ -7,14 +7,14 @@ var db = require('./db');
 var wiki = mongoose.model('wiki');
 var all = [];
 
-(function () {
-    wiki.find({}, function (err, data) {
-        if (err) {
-        } else {
-            all = data;
-        }
-    })
-})();
+//(function () {
+//    wiki.find({}, function (err, data) {
+//        if (err) {
+//        } else {
+//            all = data;
+//        }
+//    })
+//})();
 
 function getWiki(title, callback) {
     wiki.findOne({title: title}, function (err, wikisite) {
@@ -48,33 +48,40 @@ function findWiki(searchString, callback) {
 function getCategories(callback) {
     var categoryList = [];
     var uniqueList = [];
-    var wikisites = all;
-    for (var i = 0; i < wikisites.length; i++) {
-        templist = wikisites[i].categories
-        for (var j = 0; j < templist.length; j++) {
-            categoryList.push(templist[j])
-        }
+    var templist=[];
+    wiki.find({},'categories', function (err, wikisites) {
+        if (err) {
+        } else {
+            for (var i = 0; i < wikisites.length; i++) {
+                templist = wikisites[i].categories
+                for (var j = 0; j < templist.length; j++) {
+                    categoryList.push(templist[j])
+                }
 
-    }
-    var uniqueList = categoryList.filter(function (site, pos) {
-        return categoryList.indexOf(site) == pos;
-    });
-    callback(null, uniqueList);
+            }
+            var uniqueList = categoryList.filter(function (site, pos) {
+                return categoryList.indexOf(site) == pos;
+            });
+            callback(null, uniqueList);
+        }
+    })
 }
 
 function getWikisWithCategory(category, callback) {
     console.log("getWikisWithCategory running. category: " + category)
     var result = [];
-    var wikisites = all;
-    for (var i = 0; i < wikisites.length; i++) {
-        for (var j = 0; j < wikisites[i].categories.length; j++) {
-            if (category == wikisites[i].categories[j]) {
-                var titleabstract = {title: wikisites[i].title, abstract: wikisites[i].abstract};
-                result.push(titleabstract);
-            }
-        }
-    }
-    callback(null, result);
+    wiki.find({categories: category},'title', function (err, wikisites) {
+        //for (var i = 0; i < wikisites.length; i++) {
+        //    for (var j = 0; j < wikisites[i].categories.length; j++) {
+        //        if (category == wikisites[i].categories[j]) {
+        //            var titleabstract = {title: wikisites[i].title, abstract: wikisites[i].abstract};
+        //            result.push(titleabstract);
+        //        }
+        //    }
+        //}
+        callback(null, wikisites);
+    })
+
 }
 
 module.exports = {
