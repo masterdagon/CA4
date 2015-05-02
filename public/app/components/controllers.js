@@ -2,9 +2,7 @@ angular.module('myAppRename.controllers', []).
   controller('AppCtrl', function ($scope) {
     $scope.title = "CA4 Gruppe 7";
   })
-  .controller('MyCtrl2', function ($scope) {
-    // write MyCtrl2 here
-  }).controller('viewallCTRL',function($scope,InfoFactory){
+    .controller('viewallCTRL',function($scope,InfoFactory){
         $scope.dynamicTooltip ="dette er en test"
         $scope.getwikiFromTitle = function(title){
             InfoFactory.getwikiFromTitle(title)

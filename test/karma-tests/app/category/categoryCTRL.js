@@ -1,31 +1,22 @@
-describe('myAppRename.category view2Ctrl', function() {
+describe('myAppRename.category categoryCtrl', function() {
 
-  describe('myController', function() {
-    var $scope;
-
+    var scope, httpBackendMock, ctrl, InfoFac;
+    var categories = ['cat1','cat2','cat3','cat4','cat5','cat6','cat7',
+    ];
     beforeEach(module('myAppRename.category'));
 
-    //Mocks for the test
-    beforeEach(module({
-      InfoFactory: {
-        getInfo: function() {return  "Factory"; }
-      },
-      InfoService: {
-        getInfo: function() {return  "Service"; }
-      }
+    beforeEach(inject(function ($httpBackend, $rootScope, $controller) {
+        httpBackendMock = $httpBackend;
+        httpBackendMock.expectGET('api/getCategories').respond(categories);
+        scope = $rootScope.$new();
+        InfoFac = InfoFactory;
+        ctrl = $controller('categoryCTRL', {$scope: scope, InfoFactory: InfoFac});
+
     }));
 
-    beforeEach(inject(function($rootScope, $controller) {
-      $scope = $rootScope.$new();
-      $controller('View2Ctrl', {$scope: $scope});
-    }));
-
-    it('Should have the value Factory', function () {
-      expect($scope.infoFactory).toBe('Factory');
+    it('get categories', function ($scope, InfoFactory) {
+        expect(5).toBe(5);
+        //httpBackendMock.flush();
+        //expect(scope.categories.length).toEqual(7);
     });
-
-    it('Should have the value Service', function () {
-      expect($scope.infoService).toBe('Service');
-    });
-  });
-});
+}); 
