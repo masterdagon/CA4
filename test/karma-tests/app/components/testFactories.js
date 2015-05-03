@@ -27,34 +27,49 @@ describe('Factory Tests',function(){
             httpBackend = $httpBackend;
             scope = $rootScope.$new();
             factory = InfoFactory;
-
-            httpBackend.whenGET("/api/getWiki/test").respond("getWiki");
-            httpBackend.whenGET("/api/findWiki/test").respond("findWiki");
-            httpBackend.whenGET("/api/getCategories").respond("getCategories");
-            httpBackend.whenGET("/api/getWikisWithCategory/test").respond("getWikisWithCategory");
         }));
 
-        it("InfoFactory: should return correct value from http request to the rest api through method",function(){
+        it("InfoFactory: all methods should be defined",function(){
+            expect(factory.getwiki).toBeDefined();
+            expect(factory.findWiki).toBeDefined();
+            expect(factory.getCategories).toBeDefined();
+            expect(factory.getWikisWithCategory).toBeDefined();
+
+        })
+        it("getwiki",function(){
+            httpBackend.whenGET("/api/getWiki/test/").respond("getWiki");
             factory.getwiki("test")
                 .success(function(wiki){
-                    console.log(wiki);
+                    console.log("123");
                     expect(wiki).toBe("getWiki123");
-                })
-
+                    httpBackend.flush()
+                });
+        })
+        it("findWiki",function(){
+            httpBackend.whenGET("/api/findWiki/test/").respond("findWiki");
             factory.findWiki("test")
                 .success(function(wiki){
                     expect(wiki).toBe("findWiki");
+                    httpBackend.flush()
                 });
+        })
+        it("getCategories",function(){
+            httpBackend.whenGET("/api/getCategories/").respond("getCategories");
             factory.getCategories("test")
                 .success(function(wiki){
                     expect(wiki).toBe("getCategories");
+                    httpBackend.flush()
                 });
+        })
+        it("getWikisWithCategory",function(){
+            httpBackend.whenGET("/api/getWikisWithCategory/test/").respond("getWikisWithCategory");
             factory.getWikisWithCategory("test")
                 .success(function(wiki){
                     expect(wiki).toBe("getWikisWithCategory");
+                    httpBackend.flush()
                 });
 
-
         })
+
     })
 })
