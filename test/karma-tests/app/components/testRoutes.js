@@ -48,7 +48,7 @@ describe("Testing Routes", function () {
             expect(route.current).toBeUndefined();
             location.path('/UnknownPATH');
             scope.$digest();
-            console.log(location.path())
+            console.log('location is ' +location.path())
             expect(location.path()).toBe('/home');
             expect(route.current.templateUrl).toEqual('app/view/home/home.html');
 

@@ -29,7 +29,6 @@ describe('Factory Tests',function(){
         it("getwiki",function(){
             factory.getwiki("test")
                 .success(function(wiki){
-                    console.log("123");
                     expect(wiki).toBe("getWiki");
                 });
             http = true;
