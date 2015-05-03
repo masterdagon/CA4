@@ -1,6 +1,6 @@
 describe("Testing Routes", function () {
 
-    describe("Perform Search", function () {
+    describe("test viewall route", function () {
 
         var scope, location, route;
 
@@ -30,7 +30,7 @@ describe("Testing Routes", function () {
 
     });
 
-    describe("Perform Search", function () {
+    describe("test unknown route", function () {
 
         var scope, location, route;
 
