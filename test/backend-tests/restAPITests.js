@@ -54,6 +54,8 @@ describe('REST API for /user', function () {
             })
         });
     })
+
+
     describe('test for /api/getCategories ', function () {
         it("Should return array of cattegories with the lengt of 3", function (done) {
             http.get("http://localhost:" + testPort + "/api/getCategories", function (res) {
