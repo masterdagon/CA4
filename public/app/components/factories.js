@@ -4,7 +4,7 @@
 
 angular.module('myAppRename.factories', []).
   factory('InfoFactory', function ($http) {
-        var urlBase = '/api/';
+        var urlBase = '/api';
         var dataFactory = {};
 
         dataFactory.getwiki = function (title) {
