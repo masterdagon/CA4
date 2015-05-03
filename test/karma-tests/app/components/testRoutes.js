@@ -37,7 +37,7 @@ describe("Testing Routes", function () {
         beforeEach(module('myAppRename'));
 
         beforeEach(inject(function($route, $location, $rootScope, $httpBackend) {
-                $httpBackend.expectGET("app/view/home/home.html").respond("");
+                $httpBackend.expectGET("/view/home/home.html").respond("");
                 scope = $rootScope;
                 location = $location;
                 route = $route;
@@ -50,7 +50,7 @@ describe("Testing Routes", function () {
             scope.$digest();
             console.log('location is ' +location.path())
             expect(location.path()).toBe('/home');
-            expect(route.current.templateUrl).toEqual('app/view/home/home.html');
+            expect(route.current.templateUrl).toEqual('/view/home/home.html');
 
         });
 
