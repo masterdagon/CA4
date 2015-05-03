@@ -23,6 +23,7 @@ describe('Factory Tests',function(){
     beforeEach(module('myAppRename.factories'));
     describe('InfoFactory',function(){
         var scope,factory,httpBackend;
+        var http = null;
         beforeEach(inject(function($httpBackend,$rootScope,InfoFactory){
             httpBackend = $httpBackend;
             scope = $rootScope.$new();
@@ -33,7 +34,10 @@ describe('Factory Tests',function(){
             httpBackend.whenGET("/api/getWikisWithCategory/test").respond("getWikisWithCategory");
         }));
         afterEach(function(){
-            httpBackend.flush()
+            if(http == true){
+                httpBackend.flush()
+            }
+
         })
 
         it("InfoFactory: all methods should be defined",function(){
@@ -41,16 +45,17 @@ describe('Factory Tests',function(){
             expect(factory.findWiki).toBeDefined();
             expect(factory.getCategories).toBeDefined();
             expect(factory.getWikisWithCategory).toBeDefined();
+            http = false;
 
         })
         it("getwiki",function(){
-
             factory.getwiki("test")
                 .success(function(wiki){
                     console.log("123");
                     expect(wiki).toBe("getWiki123");
 
                 });
+            http = true;
 
         })
         it("findWiki",function(){
@@ -60,6 +65,7 @@ describe('Factory Tests',function(){
                     expect(wiki).toBe("findWiki");
 
                 });
+            http = true;
 
         })
         it("getCategories",function(){
@@ -69,6 +75,7 @@ describe('Factory Tests',function(){
                     expect(wiki).toBe("getCategories");
 
                 });
+            http = true;
 
         })
         it("getWikisWithCategory",function(){
@@ -78,6 +85,7 @@ describe('Factory Tests',function(){
                     expect(wiki).toBe("getWikisWithCategory");
 
                 });
+            http = true;
 
 
         })
