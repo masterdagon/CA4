@@ -19,13 +19,13 @@
 //  });
 //});
 
-describe('infoFactory',function(){
+describe('Factory Tests',function(){
     beforeEach(module('myAppRename.factories'));
     describe('InfoFactory',function(){
         var scope,factory,httpBackend;
         beforeEach(inject(function($httpBackend,$rootScope,InfoFactory){
             httpBackend = $httpBackend;
-            scope = $rootScope;
+            scope = $rootScope.$new();
             factory = InfoFactory;
 
             httpBackend.whenGET("/api/getWiki/test").respond("getWiki");
@@ -34,12 +34,14 @@ describe('infoFactory',function(){
             httpBackend.whenGET("/api/getWikisWithCategory/test").respond("getWikisWithCategory");
         }));
 
-        it("getWiki: should return correct value from http request to the rest api through method",function(){
+        it("InfoFactory: should return correct value from http request to the rest api through method",function(){
             factory.getwiki("test")
                 .success(function(wiki){
-                    expect(wiki).toBe("getWiki");
-                });
-            factory.findwiki("test")
+                    console.log(wiki);
+                    expect(wiki).toBe("getWiki123");
+                })
+
+            factory.findWiki("test")
                 .success(function(wiki){
                     expect(wiki).toBe("findWiki");
                 });
@@ -51,6 +53,7 @@ describe('infoFactory',function(){
                 .success(function(wiki){
                     expect(wiki).toBe("getWikisWithCategory");
                 });
+
 
         })
     })
