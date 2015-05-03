@@ -39,6 +39,8 @@ describe('Factory Tests',function(){
                 .success(function(wiki){
                     console.log(wiki);
                     expect(wiki).toBe("getWiki123");
+                }).error(function(err){
+                    expect(err).toBe("123")
                 })
 
             factory.findWiki("test")
