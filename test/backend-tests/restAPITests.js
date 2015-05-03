@@ -69,7 +69,7 @@ describe('REST API for /user', function () {
        });
     });
     describe('test for /api/getCategories ', function () {
-        it("Should return array of cattegories with the lengt of 3", function (done) {
+        it("Should return array of categories with the lengt of 3", function (done) {
             http.get("http://localhost:" + testPort + "/api/getCategories", function (res) {
                 res.setEncoding("utf8");//response data is now a string
                 res.on("data", function (chunk) {
@@ -89,8 +89,8 @@ describe('REST API for /user', function () {
                 res.on("data", function (chunk) {
                     var n = JSON.parse(chunk);
                     n.length.should.equal(2)
-                    n[0].title.should.equal("test1");
-                    n[1].title.should.equal("test2");
+                    n[0].title.should.equal("test2");
+                    n[1].title.should.equal("test1");
                     done();
                 });
             })
