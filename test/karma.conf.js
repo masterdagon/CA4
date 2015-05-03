@@ -11,10 +11,7 @@ module.exports = function(config){
       'public/app/components/**/*.js',
       'public/app/components/*.js',
       'public/app/view*/**/*.js',
-      'test/karma-tests/app/Routes/*.js',
-      //'test/karma-tests/app/view*/**/*.js',
-      //'test/karma-tests/app/category/*.js',
-      //'test/karma-tests/app/components/*.js',
+      'test/karma-tests/app/components/*.js',
     ],
 
     autoWatch : true,
